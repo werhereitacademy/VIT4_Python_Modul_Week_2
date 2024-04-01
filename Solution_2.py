@@ -1,5 +1,3 @@
-
-
 print(""""
 |=====Movie Library Management System======[-][o][x]
 |           M O V I E   M  E  N  U                 | 
@@ -11,7 +9,9 @@ print(""""
 |               version 1.02                       |       
 |           copyright@vit4 group2                  |
 |==================================================| """)
-menu_choose= input("Please choose a nummer:")
+
+
+movie_collection={}
 
 def add_movie():
     movie_name= input ("Enter the Movie Name:")
@@ -25,8 +25,43 @@ def add_movie():
         "Release Year": release_year,
         "Genre": genre
         }
-    print(movie_dictionary)
+
+    movie_collection[movie_name]= movie_dictionary
+    print(f"({movie_name}) added to the collection")
+
+def edit_movie (movie_name):
+    if movie_name in movie_collection:
+        print(f"Editing {movie_name}...")
+        new_data = {}
+        new_data['Movie']= input(f"Enter a new movie({ movie_collection[movie_name]['Movie']}):")
+        new_data['Director']= input(f"Enter a New Director ({movie_collection[movie_name]['Director']}):")
+        new_data['Release Year']= input(f"Enter a New Release Year ({movie_collection[movie_name]['Release Year']}):")
+        new_data['Genre']= input(f"Enter a New Genre ({movie_collection[movie_name]['Genre']}):")
+
+        movie_collection[movie_name]= new_data
+        print(f"({movie_name}) uptaded")
+    else:
+        print(f"({movie_name}) not found in the collection.")
 
 
-if menu_choose == "1" :
-    add_movie()
+while True:
+    menu_choose = input("Please choose a nummer:")
+    print('='*51)
+
+    if menu_choose == "1" :
+        add_movie()
+        print('=' * 51)
+
+    elif menu_choose =="2":
+        movie_name = input("Enter the film name to edit: ")
+        edit_movie(movie_name)
+        print('=' * 51)
+
+    elif menu_choose == "5":
+        print("Exiting to the program")
+        print('=' * 51)
+        break
+
+    else:
+        print("Invalid option! Please try again.")
+        print('=' * 51)
