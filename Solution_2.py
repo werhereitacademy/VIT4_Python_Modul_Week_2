@@ -39,11 +39,26 @@ def edit_movie (movie_name):
         new_data['Genre']= input(f"Enter a New Genre ({movie_collection[movie_name]['Genre']}):")
 
         movie_collection[movie_name]= new_data
-        print(f"({movie_name}) uptaded")
+        print(f"({new_data}) uptaded")
     else:
         print(f"({movie_name}) not found in the collection.")
 
+def view_collection():
+    print("\nMovie Collection:")
+    for movie_name, data in movie_collection.items():
+        print(f"Movie Name: {data['Movie']}")
+        print(f"Director: {data['Director']}")
+        print(f"Release Year: {data['Release Year']}")
+        print(f"Genre: {data['Genre']}")
+        print("-" * 30)
 
+def delete_movie (movie_name):
+    if movie_name in movie_collection:
+        del movie_collection[movie_name]
+        print(f"{movie_name} deleted from the collection.")
+    else:
+        print(f"{movie_name} not found in the collection.")
+        
 while True:
     menu_choose = input("Please choose a nummer:")
     print('='*51)
@@ -56,6 +71,13 @@ while True:
         movie_name = input("Enter the film name to edit: ")
         edit_movie(movie_name)
         print('=' * 51)
+
+    elif menu_choose== "3":
+        view_collection()
+
+    elif menu_choose== "4":
+        movie_name = input("Enter the Movie name to delete: ")
+        delete_movie(movie_name)
 
     elif menu_choose == "5":
         print("Exiting to the program")
