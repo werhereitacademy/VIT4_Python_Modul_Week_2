@@ -13,6 +13,7 @@ print(""""
 
 movie_collection={}
 
+
 def add_movie():
     movie_name= input ("Enter the Movie Name:")
     director= input("Enter the Director:")
