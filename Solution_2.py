@@ -58,32 +58,56 @@ def delete_movie (movie_name):
         print(f"{movie_name} deleted from the collection.")
     else:
         print(f"{movie_name} not found in the collection.")
-        
-while True:
-    menu_choose = input("Please choose a nummer:")
-    print('='*51)
 
-    if menu_choose == "1" :
-        add_movie()
+import json
+
+
+def save_data(filename):
+    with open(filename, 'w') as file:
+        json.dump(movie_collection, file)
+
+def load_data(filename):
+    try:
+        with open(filename, 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return {}
+
+def main():
+    global movie_collection
+    movie_collection = load_data('movie_data.json')
+
+    while True:
+        menu_choose = input("Please choose a number: ")
         print('=' * 51)
 
-    elif menu_choose =="2":
-        movie_name = input("Enter the film name to edit: ")
-        edit_movie(movie_name)
-        print('=' * 51)
+        if menu_choose == "1":
+            add_movie()
+            print('=' * 51)
 
-    elif menu_choose== "3":
-        view_collection()
+        elif menu_choose == "2":
+            movie_name = input("Enter the film name to edit: ")
+            edit_movie(movie_name)
+            print('=' * 51)
 
-    elif menu_choose== "4":
-        movie_name = input("Enter the Movie name to delete: ")
-        delete_movie(movie_name)
+        elif menu_choose == "3":
+            view_collection()
+            print('=' * 51)
 
-    elif menu_choose == "5":
-        print("Exiting to the program")
-        print('=' * 51)
-        break
+        elif menu_choose == "4":
+            movie_name = input("Enter the Movie name to delete: ")
+            delete_movie(movie_name)
+            print('=' * 51)
 
-    else:
-        print("Invalid option! Please try again.")
-        print('=' * 51)
+        elif menu_choose == "5":
+            save_data('movie_data.json')
+            print("Exiting the program")
+            print('=' * 51)
+            break
+
+        else:
+            print("Invalid option! Please try again.")
+            print('=' * 51)
+
+if __name__ == "__main__":
+    main()
