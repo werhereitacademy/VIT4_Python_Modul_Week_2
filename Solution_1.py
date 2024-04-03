@@ -16,6 +16,7 @@ for student, grades in students.items():
     final = grades["Final"]
     oral = grades["Oral"]
     grades["GPA"] = (midterm + final + oral) / 3
+  
 
 highest_gpa_student = max(students, key=lambda x: students[x]["GPA"])
 print("Student with the highest GPA:", highest_gpa_student)
@@ -29,3 +30,25 @@ for first_name, last_name in sorted_names:
 
 low_gpa_students = {student for student, grades in students.items() if grades["GPA"] < 70}
 print("Students with a GPA below 70:", low_gpa_students)
+
+
+
+# Abdullah MART Aciklama: 
+
+""""
+1. Huseyin abi eline saglik cok guzel olmus. Fakat Soruda ogrenci isimlerini ve not ortalamalarini bir sozlukte
+ saklnamasini istiyor. bu nedenle ilk once student_dict adinda bir bos sozluk tanimlanip en son iki satirda 
+ student_dict not ortalamalarina esitlenir. bu sekilde ogrenci isimleri ve not ortalamalari sozluge eklenmis olur. 
+ asagida duzeltilmis halini verdim.
+
+student_dict={}
+
+for student, grades in students.items():
+    midterm = grades["Midterm"]
+    final = grades["Final"]
+    oral = grades["Oral"]
+    grades["GPA"] = (midterm + final + oral) / 3
+
+    student_dict[student]= grade["GPO"]
+print(student_dict)
+"""
