@@ -24,15 +24,15 @@ if __name__ == '__main__':
 
 
 #Tuples
- if __name__ == '__main__':
+if __name__ == '__main__':
     n = int(input())
     integer_list = map(int, input().split())
-    print(tuple(integer_list).__hash__())
+    print(tuple(integer_list).__hash__()) 
 
 
 # List Comprehensions
 
-   if __name__ == '__main__':
+if __name__ == '__main__':
     x = int(input())
     y = int(input())
     z = int(input())
@@ -50,3 +50,4 @@ if __name__ == '__main__':
     print(res)
 
 
+   
