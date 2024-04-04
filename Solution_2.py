@@ -14,14 +14,13 @@ print("""
 # Dictionary to store movie data
 movie_collection = {}
 
-<<<<<<< HEAD
+
 
 movie_collection={}
 
 
-=======
 # Function to add a movie to the collection
->>>>>>> 415aeba8ef928cbe9e4829140ead7ff6789ff6f2
+
 def add_movie():
     movie_name = input("Enter the Movie Name:")
     director = input("Enter the Director:")
