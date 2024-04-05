@@ -9,7 +9,8 @@ print("""
 |   5- Exit                                        | 
 |               version 1.02                       |       
 |           copyright@vit4 group2                  |
-|==================================================| """)
+|==================================================| 
+""")
 
 # Dictionary to store movie data
 movie_collection = {}
@@ -31,6 +32,7 @@ def add_movie():
 
     # Adding movie to the collection
     movie_collection[movie_name] = movie_dictionary
+
     print(f"({movie_name}) added to the collection")
 
 # Function to edit movie details

@@ -10,12 +10,14 @@ students = {
     "Emre Tekin": {"Midterm": 80, "Final": 85, "Oral": 82},
     "Gizem Bulut": {"Midterm": 75, "Final": 80, "Oral": 78}
 }
-
+student_dict={}
 for student, grades in students.items():
     midterm = grades["Midterm"]
     final = grades["Final"]
     oral = grades["Oral"]
     grades["GPA"] = (midterm + final + oral) / 3
+    student_dict[student]= round(grades["GPA"],3)
+print(student_dict)
   
 
 highest_gpa_student = max(students, key=lambda x: students[x]["GPA"])
@@ -33,22 +35,3 @@ print("Students with a GPA below 70:", low_gpa_students)
 
 
 
-# Abdullah MART Aciklama: 
-
-""""
-1. Huseyin abi eline saglik cok guzel olmus. Fakat Soruda ogrenci isimlerini ve not ortalamalarini bir sozlukte
- saklnamasini istiyor. bu nedenle ilk once student_dict adinda bir bos sozluk tanimlanip en son iki satirda 
- student_dict not ortalamalarina esitlenir. bu sekilde ogrenci isimleri ve not ortalamalari sozluge eklenmis olur. 
- asagida duzeltilmis halini verdim.
-
-student_dict={}
-
-for student, grades in students.items():
-    midterm = grades["Midterm"]
-    final = grades["Final"]
-    oral = grades["Oral"]
-    grades["GPA"] = (midterm + final + oral) / 3
-
-    student_dict[student]= grade["GPO"]
-print(student_dict)
-"""
