@@ -24,21 +24,19 @@ for name, scores_list in students.items():
     if average_score > highest_average:
         highest_average = average_score
         best_student = name
-print(best_student)
+print("The student with the highest average score is ", best_student)
 
 # 3. Separate the first name and last name of each student and store them in a list of tuples.
 full_names = []
 for name in students.keys():
     full_names.append(tuple(name.split()))
-print(full_names)
 
 # 4. Sort the names alphabetically and print the sorted list.
 sorted_firstnames = sorted(i[0] for i in full_names)
-print(sorted_firstnames)
+print("First names alphabetically:\n", sorted_firstnames)
 
 # 5. Store students with an average score below 70 in a set.
 below70 = set()
 for name, scores in students.items():
     if scores[-1] < 70:
         below70.add(name)
-print(below70)
